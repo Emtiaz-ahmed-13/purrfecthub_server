@@ -1,20 +1,26 @@
-import mongoose from 'mongoose';
-import app from './app';
-import config from './app/config';
+import { Server } from "http";
+import app from "./app";
+import config from "./config";
+import { initializeSocket } from "./socket";
 
 async function main() {
-  try {
-    await mongoose.connect(String(config.databaseUrl));
-    console.log('Database connected successfully');
+  const server: Server = app.listen(config.port, () => {
+    console.log("Server is running on port", config.port);
+  });
 
-    const port = config.port || 5000;
-    app.listen(port, () => {
-      console.log(`Server is running on port ${port}`);
+  // Initialize Socket.io
+  const io = initializeSocket(server);
+  console.log("Socket.io initialized");
+
+  // Handle graceful shutdown
+  process.on("SIGINT", () => {
+    console.log("Shutting down gracefully...");
+    io.close();
+    server.close(() => {
+      console.log("Server closed");
+      process.exit(0);
     });
-  } catch (error) {
-    console.error('Database connection failed:', error);
-    process.exit(1);
-  }
+  });
 }
 
 main();

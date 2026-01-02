@@ -1,49 +1,51 @@
 {
-  "name": "purrfecthub_server",
+  "name": "perfecthub_server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "start:prod": "node ./dist/server.js",
-    "start:dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
     "start": "node ./dist/server.js",
-    "lint": "eslint src/**/*.ts",
-    "lint:fix": "eslint src/**/*.ts --fix",
-    "format": "prettier . --write"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Emtiaz-ahmed-13/purrfecthub_server.git"
+    "build": "npx prisma generate && tsc",
+    "postinstall": "prisma generate"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/Emtiaz-ahmed-13/purrfecthub_server/issues"
-  },
-  "homepage": "https://github.com/Emtiaz-ahmed-13/purrfecthub_server#readme",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "mongoose": "^8.19.2"
-  },
+  "description": "",
   "devDependencies": {
-    "@eslint/js": "^9.38.0",
-    "@types/cors": "^2.8.19",
-    "@types/eslint__js": "^8.42.3",
-    "@types/express": "^4.17.21",
-    "@types/node": "^20.5.1",
-    "@typescript-eslint/eslint-plugin": "^8.46.2",
-    "@typescript-eslint/parser": "^8.46.2",
-    "eslint": "^9.38.0",
-    "globals": "^16.4.0",
-    "jiti": "^2.6.1",
-    "prettier": "^3.6.2",
+    "@types/cookie-parser": "^1.4.8",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^22.10.10",
+    "@types/pg": "^8.16.0",
+    "@types/stripe": "^8.0.416",
+    "prisma": "^7.2.0",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.9.3"
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.2.0",
+    "@prisma/client": "^7.2.0",
+    "@types/bcrypt": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/nodemailer": "^7.0.4",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "imagekit": "^6.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.12",
+    "pg": "^8.16.3",
+    "socket.io": "^4.8.3",
+    "stripe": "^20.1.0",
+    "zod": "^3.24.1"
   }
 }

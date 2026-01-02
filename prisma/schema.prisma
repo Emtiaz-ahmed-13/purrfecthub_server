@@ -1,0 +1,265 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Enums
+enum UserRole {
+  ADOPTER
+  SHELTER
+  ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  BANNED
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+enum CatStatus {
+  AVAILABLE
+  PENDING
+  ADOPTED
+  NOT_AVAILABLE
+}
+
+enum AdoptionStatus {
+  PENDING
+  UNDER_REVIEW
+  APPROVED
+  REJECTED
+  COMPLETED
+  CANCELLED
+}
+
+enum RecordType {
+  VACCINATION
+  VET_VISIT
+  HEALTH_CHECK
+  TREATMENT
+  SURGERY
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+// Models
+model User {
+  id        String     @id @default(uuid())
+  name      String
+  email     String     @unique
+  password  String
+  role      UserRole   @default(ADOPTER)
+  status    UserStatus @default(ACTIVE)
+
+  // Optional profile fields
+  phone   String?
+  address String?
+  avatar  String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  shelter        Shelter?
+  adoptions      Adoption[]
+  donations      Donation[]
+  notifications  Notification[]
+  sentMessages     Message[] @relation("SentMessages")
+  conversations    ConversationParticipant[]
+
+  @@map("users")
+}
+
+model Shelter {
+  id          String  @id @default(uuid())
+  userId      String  @unique
+  user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name        String
+  description String?
+  address     String
+  city        String
+  state       String?
+  zipCode     String?
+  phone       String
+  email       String?
+  website     String?
+  logo        String?
+  isVerified  Boolean @default(false)
+
+  // Location for nearby search
+  latitude    Float?
+  longitude   Float?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  cats      Cat[]
+  donations Donation[]
+
+  @@map("shelters")
+}
+
+model Cat {
+  id           String    @id @default(uuid())
+  name         String
+  breed        String
+  age          Int       // in months
+  gender       Gender
+  color        String
+  weight       Float?    // in kg
+  description  String?
+  images       String[]  // array of image URLs
+  status       CatStatus @default(AVAILABLE)
+  isVaccinated Boolean   @default(false)
+  isNeutered   Boolean   @default(false)
+  specialNeeds String?
+
+  shelterId String
+  shelter   Shelter @relation(fields: [shelterId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  medicalRecords MedicalRecord[]
+  adoptions      Adoption[]
+  donations      Donation[]
+
+  @@map("cats")
+}
+
+model Adoption {
+  id            String         @id @default(uuid())
+  catId         String
+  cat           Cat            @relation(fields: [catId], references: [id], onDelete: Cascade)
+  adopterId     String
+  adopter       User           @relation(fields: [adopterId], references: [id], onDelete: Cascade)
+  status        AdoptionStatus @default(PENDING)
+  message       String?        // Adopter's application message
+  homeType      String?        // House, Apartment, etc.
+  hasOtherPets  Boolean        @default(false)
+  otherPetsInfo String?
+  experience    String?        // Previous pet experience
+  reviewNotes   String?        // Shelter's review notes
+  reviewedAt    DateTime?
+  completedAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("adoptions")
+}
+
+model MedicalRecord {
+  id          String     @id @default(uuid())
+  catId       String
+  cat         Cat        @relation(fields: [catId], references: [id], onDelete: Cascade)
+  type        RecordType
+  title       String
+  description String?
+  veterinarian String?
+  clinic       String?
+  date        DateTime
+  nextDueDate DateTime?  // For vaccination reminders
+  documents   String[]   // Array of document URLs
+  cost        Float?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("medical_records")
+}
+
+model Donation {
+  id              String        @id @default(uuid())
+  amount          Float
+  currency        String        @default("usd")
+  message         String?
+  isAnonymous     Boolean       @default(false)
+  
+  donorId         String?
+  donor           User?         @relation(fields: [donorId], references: [id], onDelete: SetNull)
+  
+  shelterId       String?
+  shelter         Shelter?      @relation(fields: [shelterId], references: [id], onDelete: SetNull)
+  
+  catId           String?
+  cat             Cat?          @relation(fields: [catId], references: [id], onDelete: SetNull)
+  
+  stripePaymentId String?       @unique
+  stripeSessionId String?
+  status          PaymentStatus @default(PENDING)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("donations")
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  message   String
+  type      String   // ADOPTION_UPDATE, REMINDER, DONATION, SYSTEM
+  isRead    Boolean  @default(false)
+  link      String?  // Optional link to related content
+  
+  createdAt DateTime @default(now())
+
+  @@map("notifications")
+}
+
+model Conversation {
+  id           String   @id @default(uuid())
+  participants ConversationParticipant[]
+  messages     Message[]
+  lastMessage  String?
+  lastMessageAt DateTime?
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("conversations")
+}
+
+model ConversationParticipant {
+  id             String       @id @default(uuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  userId         String
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lastReadAt     DateTime?
+
+  @@unique([conversationId, userId])
+  @@map("conversation_participants")
+}
+
+model Message {
+  id             String       @id @default(uuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  senderId       String
+  sender         User         @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
+  content        String
+  isRead         Boolean      @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@map("messages")
+}
