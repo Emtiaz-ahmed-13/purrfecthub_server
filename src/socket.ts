@@ -1,9 +1,9 @@
 import { Server as HttpServer } from "http";
 import { Secret } from "jsonwebtoken";
 import { Server, Socket } from "socket.io";
-import prisma from "../app/shared/prisma";
-import config from "../config";
-import { jwtHelpers } from "../helpers/jwtHelpers";
+import prisma from "./app/shared/prisma";
+import config from "./config";
+import { jwtHelpers } from "./helpers/jwtHelpers";
 
 let io: Server;
 

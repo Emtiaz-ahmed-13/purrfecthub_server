@@ -2,14 +2,17 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/server.js",
+      "src": "api/index.ts",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/server.js"
+      "dest": "/api/index.ts"
     }
-  ]
+  ],
+  "installCommand": "npm install",
+  "buildCommand": "echo 'Skipping build step for serverless functions'",
+  "outputDirectory": "."
 }
