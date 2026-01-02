@@ -23,6 +23,13 @@ app.get("/", (req: Request, res: Response) => {
 app.use("/api/v1", router);
 
 app.use(globalErrorHandler);
+app.use((req: Request, res: Response) => {
+  res.status(404).json({
+    success: false,
+    message: "API NOT FOUND!",
+    path: req.originalUrl,
+  });
+});
 
 app.use((req: Request, res: Response, next: NextFunction) => {
   res.status(404).json({
