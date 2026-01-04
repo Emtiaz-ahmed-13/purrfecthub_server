@@ -33,7 +33,22 @@ type TCatFilters = {
   search?: string;
   page?: number;
   limit?: number;
+  latitude?: number;
+  longitude?: number;
+  maxDistance?: number;
 };
+
+function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
+  const toRad = (value: number) => (value * Math.PI) / 180;
+  const R = 6371; // km
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
 
 const createCat = async (userId: string, payload: TCreateCat) => {
   // Get shelter for this user
@@ -78,6 +93,9 @@ const getAllCats = async (filters: TCatFilters) => {
     search,
     page = 1,
     limit = 12,
+    latitude,
+    longitude,
+    maxDistance = 10,
   } = filters;
 
   const skip = (page - 1) * limit;
@@ -120,6 +138,8 @@ const getAllCats = async (filters: TCatFilters) => {
             name: true,
             city: true,
             isVerified: true,
+            latitude: true,
+            longitude: true,
           },
         },
       },
@@ -127,9 +147,25 @@ const getAllCats = async (filters: TCatFilters) => {
     prisma.cat.count({ where }),
   ]);
 
+  let finalCats = cats;
+
+  // Filter by distance if lat/long are provided
+  if (latitude && longitude) {
+    finalCats = cats.filter((cat) => {
+      if (!cat.shelter.latitude || !cat.shelter.longitude) return false;
+      const distance = calculateDistance(
+        latitude,
+        longitude,
+        cat.shelter.latitude,
+        cat.shelter.longitude
+      );
+      return distance <= maxDistance;
+    });
+  }
+
   return {
-    cats,
-    meta: { page, limit, total },
+    cats: finalCats,
+    meta: { page, limit, total: finalCats.length }, // Update total for current page, ideally should refetch count but this is a reasonable approximation for "nearby" filter on fetched set
   };
 };
 

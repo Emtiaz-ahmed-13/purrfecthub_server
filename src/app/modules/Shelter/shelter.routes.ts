@@ -9,11 +9,19 @@ const router = express.Router();
 // Public routes
 router.get("/", ShelterControllers.getAllShelters);
 router.get("/nearby", ShelterControllers.getNearbyShelters);
+router.get("/me", auth("SHELTER"), ShelterControllers.getMyShelterProfile);
 router.get("/:id", ShelterControllers.getShelterById);
 
 // Shelter only routes
 router.post(
   "/profile",
+  auth("SHELTER"),
+  validateRequest(ShelterValidations.createShelterSchema),
+  ShelterControllers.createShelterProfile
+);
+
+router.post(
+  "/",
   auth("SHELTER"),
   validateRequest(ShelterValidations.createShelterSchema),
   ShelterControllers.createShelterProfile

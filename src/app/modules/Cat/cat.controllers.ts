@@ -24,8 +24,8 @@ const createCat = catchAsync(
     // If 'images' provided in body is a string (from FormData), ignore/overwrite it if we have files
     // If no files uploaded, fallback to body.images if validation allows it (usually for testing)
     const catData = {
-        ...req.body,
-        images: imageUrls.length > 0 ? imageUrls : req.body.images
+      ...req.body,
+      images: imageUrls.length > 0 ? imageUrls : req.body.images
     };
 
     const result = await CatServices.createCat(req.user.id, catData);
@@ -53,6 +53,9 @@ const getAllCats = catchAsync(async (req: Request, res: Response) => {
     search,
     page,
     limit,
+    latitude,
+    longitude,
+    maxDistance,
   } = req.query;
 
   const result = await CatServices.getAllCats({
@@ -68,6 +71,9 @@ const getAllCats = catchAsync(async (req: Request, res: Response) => {
     search: search as string,
     page: page ? parseInt(page as string) : undefined,
     limit: limit ? parseInt(limit as string) : undefined,
+    latitude: latitude ? parseFloat(latitude as string) : undefined,
+    longitude: longitude ? parseFloat(longitude as string) : undefined,
+    maxDistance: maxDistance ? parseFloat(maxDistance as string) : undefined,
   });
 
   sendResponse(res, {

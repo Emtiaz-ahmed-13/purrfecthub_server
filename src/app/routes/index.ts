@@ -10,6 +10,14 @@ import { UserRoutes } from "../modules/User/user.routes";
 
 const router = express.Router();
 
+router.get("/", (req: express.Request, res: express.Response) => {
+  res.send({
+    success: true,
+    message: "Welcome to PurrfectHub API v1",
+    data: null,
+  });
+});
+
 const moduleRoutes = [
   {
     path: "/auth",

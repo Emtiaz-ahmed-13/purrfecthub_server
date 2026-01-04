@@ -56,20 +56,20 @@ const uploadToImageKit = async (file: Express.Multer.File): Promise<any> => {
 
 // Helper for direct file path upload (useful for scripts/testing)
 const uploadFile = async (filePath: string, fileName: string): Promise<any> => {
-    return new Promise((resolve, reject) => {
-        fs.readFile(filePath, (err, data) => {
-            if (err) return reject(err);
+  return new Promise((resolve, reject) => {
+    fs.readFile(filePath, (err, data) => {
+      if (err) return reject(err);
 
-            imagekit.upload({
-                file: data,
-                fileName: fileName,
-                folder: "/perfecthub/test",
-            }, (error, result) => {
-                if (error) return reject(error);
-                resolve(result);
-            });
-        });
+      imagekit.upload({
+        file: data,
+        fileName: fileName,
+        folder: "/perfecthub/test",
+      }, (error, result) => {
+        if (error) return reject(error);
+        resolve(result);
+      });
     });
+  });
 };
 
 export const FileUploadHelper = {
