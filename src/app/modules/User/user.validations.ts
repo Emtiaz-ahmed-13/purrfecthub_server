@@ -20,6 +20,11 @@ const updateProfileSchema = z.object({
   phone: z.string().optional(),
   address: z.string().optional(),
   avatar: z.string().url("Invalid avatar URL").optional(),
+  homeType: z.string().optional(),
+  hasOtherPets: z.boolean().optional(),
+  otherPetsInfo: z.string().optional(),
+  experience: z.string().optional(),
+  aboutMe: z.string().optional(),
 });
 
 const updateStatusSchema = z.object({

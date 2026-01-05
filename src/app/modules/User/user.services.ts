@@ -17,6 +17,11 @@ type TUpdateProfile = {
   phone?: string;
   address?: string;
   avatar?: string;
+  homeType?: string;
+  hasOtherPets?: boolean;
+  otherPetsInfo?: string;
+  experience?: string;
+  aboutMe?: string;
 };
 
 const registerUser = async (payload: TRegisterUser) => {
@@ -51,6 +56,11 @@ const registerUser = async (payload: TRegisterUser) => {
       phone: true,
       address: true,
       avatar: true,
+      homeType: true,
+      hasOtherPets: true,
+      otherPetsInfo: true,
+      experience: true,
+      aboutMe: true,
       createdAt: true,
       updatedAt: true,
     },
@@ -71,6 +81,11 @@ const getMyProfile = async (userId: string) => {
       phone: true,
       address: true,
       avatar: true,
+      homeType: true,
+      hasOtherPets: true,
+      otherPetsInfo: true,
+      experience: true,
+      aboutMe: true,
       createdAt: true,
       updatedAt: true,
     },
@@ -96,6 +111,11 @@ const updateMyProfile = async (userId: string, payload: TUpdateProfile) => {
       phone: true,
       address: true,
       avatar: true,
+      homeType: true,
+      hasOtherPets: true,
+      otherPetsInfo: true,
+      experience: true,
+      aboutMe: true,
       createdAt: true,
       updatedAt: true,
     },

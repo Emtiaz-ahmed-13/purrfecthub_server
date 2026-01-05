@@ -69,6 +69,13 @@ model User {
   address String?
   avatar  String?
 
+  // Adopter specific fields
+  homeType      String?
+  hasOtherPets  Boolean?
+  otherPetsInfo String?
+  experience    String?
+  aboutMe       String?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

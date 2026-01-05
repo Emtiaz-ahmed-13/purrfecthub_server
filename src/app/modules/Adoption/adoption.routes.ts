@@ -18,9 +18,16 @@ router.get("/my-applications", auth("ADOPTER"), AdoptionControllers.getMyAdoptio
 
 // Shelter routes
 router.get(
-  "/shelter-applications",
+  "/shelter/applications",
   auth("SHELTER"),
   AdoptionControllers.getShelterAdoptions
+);
+
+router.patch(
+  "/:id/status",
+  auth("SHELTER"),
+  validateRequest(AdoptionValidations.reviewAdoptionSchema),
+  AdoptionControllers.reviewAdoption
 );
 
 router.patch(
