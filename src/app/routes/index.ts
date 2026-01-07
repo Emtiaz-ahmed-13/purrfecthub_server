@@ -1,5 +1,8 @@
 import express from "express";
+import { AdminRoutes } from "../modules/Admin/admin.routes";
 import { AdoptionRoutes } from "../modules/Adoption/adoption.routes";
+import { AIChatRoutes } from "../modules/AIChat/ai.routes";
+import { AITrainingRoutes } from '../modules/AITraining/ai-training.routes';
 import { AuthRoutes } from "../modules/Auth/auth.routes";
 import { CatRoutes } from "../modules/Cat/cat.routes";
 import { ChatRoutes } from "../modules/Chat/chat.routes";
@@ -22,6 +25,10 @@ const moduleRoutes = [
   {
     path: "/auth",
     route: AuthRoutes,
+  },
+  {
+    path: "/admin",
+    route: AdminRoutes,
   },
   {
     path: "/users",
@@ -50,6 +57,14 @@ const moduleRoutes = [
   {
     path: "/chat",
     route: ChatRoutes,
+  },
+  {
+    path: "/ai",
+    route: AIChatRoutes,
+  },
+  {
+    path: '/ai-training',
+    route: AITrainingRoutes,
   },
 ];
 

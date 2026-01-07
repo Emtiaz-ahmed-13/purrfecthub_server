@@ -160,6 +160,11 @@ const getAllUsers = async (filters: {
         phone: true,
         address: true,
         avatar: true,
+        shelter: {
+          select: {
+            id: true,
+          },
+        },
         createdAt: true,
         updatedAt: true,
       },

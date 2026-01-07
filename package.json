@@ -42,6 +42,7 @@
     "imagekit": "^6.0.0",
     "jsonwebtoken": "^9.0.2",
     "multer": "^2.0.2",
+    "node-nlp": "^5.0.0-alpha.5",
     "nodemailer": "^7.0.12",
     "pg": "^8.16.3",
     "socket.io": "^4.8.3",

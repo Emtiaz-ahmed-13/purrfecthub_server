@@ -1,0 +1,1573 @@
+{
+  "settings": {
+    "languages": [
+      "en",
+      "bn"
+    ],
+    "forceNER": true,
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en",
+      "bn"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "hello": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "hi": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "hey": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "good,morn": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "a,adopt,cat,how,to": {
+            "intent": "adoption.info",
+            "domain": "default"
+          },
+          "adopt,process": {
+            "intent": "adoption.info",
+            "domain": "default"
+          },
+          "adopt,i,to,want": {
+            "intent": "adoption.info",
+            "domain": "default"
+          },
+          "adopt,for,requir": {
+            "intent": "adoption.info",
+            "domain": "default"
+          },
+          "about,adopt,me,tell": {
+            "intent": "adoption.info",
+            "domain": "default"
+          },
+          "cat,feed,i,my,should,what": {
+            "intent": "care.food",
+            "domain": "default"
+          },
+          "best,cat,food,for": {
+            "intent": "care.food",
+            "domain": "default"
+          },
+          "cat,nutrit": {
+            "intent": "care.food",
+            "domain": "default"
+          },
+          "cat,do,eat,what": {
+            "intent": "care.food",
+            "domain": "default"
+          },
+          "cat,health,tip": {
+            "intent": "care.health",
+            "domain": "default"
+          },
+          "cat,healthi,how,keep,my,to": {
+            "intent": "care.health",
+            "domain": "default"
+          },
+          "cat,for,vaccin": {
+            "intent": "care.health",
+            "domain": "default"
+          },
+          "is,purrfecthub,what": {
+            "intent": "about.site",
+            "domain": "default"
+          },
+          "made,site,this,who": {
+            "intent": "about.site",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "greeting": "default",
+          "adoption.info": "default",
+          "care.food": "default",
+          "care.health": "default",
+          "about.site": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "how to adopt a cat",
+            "intent": "adoption.info"
+          },
+          {
+            "domain": "default",
+            "utterance": "adoption process",
+            "intent": "adoption.info"
+          },
+          {
+            "domain": "default",
+            "utterance": "i want to adopt",
+            "intent": "adoption.info"
+          },
+          {
+            "domain": "default",
+            "utterance": "requirements for adoption",
+            "intent": "adoption.info"
+          },
+          {
+            "domain": "default",
+            "utterance": "tell me about adoption",
+            "intent": "adoption.info"
+          },
+          {
+            "domain": "default",
+            "utterance": "what should i feed my cat",
+            "intent": "care.food"
+          },
+          {
+            "domain": "default",
+            "utterance": "best food for cats",
+            "intent": "care.food"
+          },
+          {
+            "domain": "default",
+            "utterance": "cat nutrition",
+            "intent": "care.food"
+          },
+          {
+            "domain": "default",
+            "utterance": "what do cats eat",
+            "intent": "care.food"
+          },
+          {
+            "domain": "default",
+            "utterance": "cat health tips",
+            "intent": "care.health"
+          },
+          {
+            "domain": "default",
+            "utterance": "how to keep my cat healthy",
+            "intent": "care.health"
+          },
+          {
+            "domain": "default",
+            "utterance": "vaccination for cats",
+            "intent": "care.health"
+          },
+          {
+            "domain": "default",
+            "utterance": "what is purrfecthub",
+            "intent": "about.site"
+          },
+          {
+            "domain": "default",
+            "utterance": "who made this site",
+            "intent": "about.site"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "hello": 1,
+              "hi": 1,
+              "hey": 1,
+              "good": 1,
+              "morn": 1,
+              "how": 1,
+              "to": 1,
+              "adopt": 1,
+              "a": 1,
+              "cat": 1,
+              "process": 1,
+              "i": 1,
+              "want": 1,
+              "requir": 1,
+              "for": 1,
+              "tell": 1,
+              "me": 1,
+              "about": 1,
+              "what": 1,
+              "should": 1,
+              "feed": 1,
+              "my": 1,
+              "best": 1,
+              "food": 1,
+              "nutrit": 1,
+              "do": 1,
+              "eat": 1,
+              "health": 1,
+              "tip": 1,
+              "keep": 1,
+              "healthi": 1,
+              "vaccin": 1,
+              "is": 1,
+              "purrfecthub": 1,
+              "who": 1,
+              "made": 1,
+              "this": 1,
+              "site": 1
+            },
+            "intents": {
+              "greeting": 1,
+              "adoption.info": 1,
+              "care.food": 1,
+              "care.health": 1,
+              "about.site": 1
+            },
+            "intentFeatures": {
+              "greeting": {
+                "hello": 1,
+                "hi": 1,
+                "hey": 1,
+                "good": 1,
+                "morn": 1
+              },
+              "adoption.info": {
+                "how": 1,
+                "to": 1,
+                "adopt": 1,
+                "a": 1,
+                "cat": 1,
+                "process": 1,
+                "i": 1,
+                "want": 1,
+                "requir": 1,
+                "for": 1,
+                "tell": 1,
+                "me": 1,
+                "about": 1
+              },
+              "care.food": {
+                "what": 1,
+                "should": 1,
+                "i": 1,
+                "feed": 1,
+                "my": 1,
+                "cat": 1,
+                "best": 1,
+                "food": 1,
+                "for": 1,
+                "nutrit": 1,
+                "do": 1,
+                "eat": 1
+              },
+              "care.health": {
+                "cat": 1,
+                "health": 1,
+                "tip": 1,
+                "how": 1,
+                "to": 1,
+                "keep": 1,
+                "my": 1,
+                "healthi": 1,
+                "vaccin": 1,
+                "for": 1
+              },
+              "about.site": {
+                "what": 1,
+                "is": 1,
+                "purrfecthub": 1,
+                "who": 1,
+                "made": 1,
+                "this": 1,
+                "site": 1
+              }
+            },
+            "featuresToIntent": {
+              "hello": [
+                "greeting"
+              ],
+              "hi": [
+                "greeting"
+              ],
+              "hey": [
+                "greeting"
+              ],
+              "good": [
+                "greeting"
+              ],
+              "morn": [
+                "greeting"
+              ],
+              "how": [
+                "adoption.info",
+                "care.health"
+              ],
+              "to": [
+                "adoption.info",
+                "care.health"
+              ],
+              "adopt": [
+                "adoption.info"
+              ],
+              "a": [
+                "adoption.info"
+              ],
+              "cat": [
+                "adoption.info",
+                "care.food",
+                "care.health"
+              ],
+              "process": [
+                "adoption.info"
+              ],
+              "i": [
+                "adoption.info",
+                "care.food"
+              ],
+              "want": [
+                "adoption.info"
+              ],
+              "requir": [
+                "adoption.info"
+              ],
+              "for": [
+                "adoption.info",
+                "care.food",
+                "care.health"
+              ],
+              "tell": [
+                "adoption.info"
+              ],
+              "me": [
+                "adoption.info"
+              ],
+              "about": [
+                "adoption.info"
+              ],
+              "what": [
+                "care.food",
+                "about.site"
+              ],
+              "should": [
+                "care.food"
+              ],
+              "feed": [
+                "care.food"
+              ],
+              "my": [
+                "care.food",
+                "care.health"
+              ],
+              "best": [
+                "care.food"
+              ],
+              "food": [
+                "care.food"
+              ],
+              "nutrit": [
+                "care.food"
+              ],
+              "do": [
+                "care.food"
+              ],
+              "eat": [
+                "care.food"
+              ],
+              "health": [
+                "care.health"
+              ],
+              "tip": [
+                "care.health"
+              ],
+              "keep": [
+                "care.health"
+              ],
+              "healthi": [
+                "care.health"
+              ],
+              "vaccin": [
+                "care.health"
+              ],
+              "is": [
+                "about.site"
+              ],
+              "purrfecthub": [
+                "about.site"
+              ],
+              "who": [
+                "about.site"
+              ],
+              "made": [
+                "about.site"
+              ],
+              "this": [
+                "about.site"
+              ],
+              "site": [
+                "about.site"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "hello",
+                "hi",
+                "hey",
+                "good",
+                "morn",
+                "how",
+                "to",
+                "adopt",
+                "a",
+                "cat",
+                "process",
+                "i",
+                "want",
+                "requir",
+                "for",
+                "tell",
+                "me",
+                "about",
+                "what",
+                "should",
+                "feed",
+                "my",
+                "best",
+                "food",
+                "nutrit",
+                "do",
+                "eat",
+                "health",
+                "tip",
+                "keep",
+                "healthi",
+                "vaccin",
+                "is",
+                "purrfecthub",
+                "who",
+                "made",
+                "this",
+                "site"
+              ],
+              "intents": [
+                "greeting",
+                "adoption.info",
+                "care.food",
+                "care.health",
+                "about.site"
+              ],
+              "perceptrons": [
+                [
+                  7.340795040130615,
+                  7.395521640777588,
+                  7.330611228942871,
+                  3.8366546630859375,
+                  3.8366546630859375,
+                  -0.41368386149406433,
+                  -0.9556034803390503,
+                  -4.455316543579102,
+                  -0.23917929828166962,
+                  -4.730778694152832,
+                  -2.1245174407958984,
+                  -0.816595733165741,
+                  -0.5344594717025757,
+                  -0.7214816212654114,
+                  -1.578083872795105,
+                  -0.7621675133705139,
+                  -0.7621675133705139,
+                  -0.7621675133705139,
+                  -2.639267683029175,
+                  -0.2452983409166336,
+                  -0.2452983409166336,
+                  -0.39168915152549744,
+                  -0.44390034675598145,
+                  -0.44390034675598145,
+                  -1.8377254009246826,
+                  -0.32088324427604675,
+                  -0.32088324427604675,
+                  -0.9866493344306946,
+                  -0.9866493344306946,
+                  -0.11031552404165268,
+                  -0.11031552404165268,
+                  -0.38701844215393066,
+                  -2.0064473152160645,
+                  -2.0064473152160645,
+                  -1.6668287515640259,
+                  -1.6668287515640259,
+                  -1.6668287515640259,
+                  -1.6668287515640259,
+                  6.6883860972106595
+                ],
+                [
+                  -1.0046340227127075,
+                  -0.9955909848213196,
+                  -0.986318826675415,
+                  -0.5675702691078186,
+                  -0.5675702691078186,
+                  1.0512906312942505,
+                  2.0062472820281982,
+                  9.800882339477539,
+                  1.920969009399414,
+                  -1.5048342943191528,
+                  3.403923273086548,
+                  0.5098825097084045,
+                  0.9558013081550598,
+                  2.358605146408081,
+                  1.1140239238739014,
+                  1.157130241394043,
+                  1.157130241394043,
+                  1.157130241394043,
+                  -0.9508516192436218,
+                  -0.3548169434070587,
+                  -0.3548169434070587,
+                  -1.2789340019226074,
+                  -0.50424724817276,
+                  -0.50424724817276,
+                  -0.3252257704734802,
+                  -0.13076886534690857,
+                  -0.13076886534690857,
+                  -0.21237830817699432,
+                  -0.21237830817699432,
+                  -0.8316817283630371,
+                  -0.8316817283630371,
+                  -0.6475902795791626,
+                  -0.29921895265579224,
+                  -0.29921895265579224,
+                  -0.38945600390434265,
+                  -0.38945600390434265,
+                  -0.38945600390434265,
+                  -0.38945600390434265,
+                  1.0191397427373021
+                ],
+                [
+                  -0.5989183187484741,
+                  -0.5925853848457336,
+                  -0.5861655473709106,
+                  -0.31687861680984497,
+                  -0.31687861680984497,
+                  -2.1843435764312744,
+                  -2.1962575912475586,
+                  -1.1897844076156616,
+                  -0.774792492389679,
+                  5.743293285369873,
+                  -0.05191739648580551,
+                  1.66915762424469,
+                  -0.005957089830189943,
+                  -0.2653184235095978,
+                  -1.0263878107070923,
+                  -0.023086795583367348,
+                  -0.023086795583367348,
+                  -0.023086795583367348,
+                  2.632760763168335,
+                  1.6810718774795532,
+                  1.6810718774795532,
+                  0.2715214490890503,
+                  4.440692901611328,
+                  4.440692901611328,
+                  7.489428997039795,
+                  2.6378138065338135,
+                  2.6378138065338135,
+                  -3.173190116882324,
+                  -3.173190116882324,
+                  -1.360365867614746,
+                  -1.360365867614746,
+                  -5.171138763427734,
+                  -1.6762278079986572,
+                  -1.6762278079986572,
+                  -0.20396509766578674,
+                  -0.20396509766578674,
+                  -0.20396509766578674,
+                  -0.20396509766578674,
+                  0.6426559049632177
+                ],
+                [
+                  -0.5132099986076355,
+                  -0.5010704398155212,
+                  -0.4922860562801361,
+                  -0.3269409239292145,
+                  -0.3269409239292145,
+                  0.824963390827179,
+                  0.6534030437469482,
+                  -3.1302971839904785,
+                  -2.56412410736084,
+                  3.5910863876342773,
+                  -0.04460672289133072,
+                  -1.4768728017807007,
+                  -0.11148395389318466,
+                  -0.29249894618988037,
+                  3.143284797668457,
+                  -0.008645543828606606,
+                  -0.008645543828606606,
+                  -0.008645543828606606,
+                  -2.3797767162323,
+                  -1.305202603340149,
+                  -1.305202603340149,
+                  2.0620646476745605,
+                  -3.4974231719970703,
+                  -3.4974231719970703,
+                  -3.6183128356933594,
+                  -0.8330655694007874,
+                  -0.8330655694007874,
+                  5.15769624710083,
+                  5.15769624710083,
+                  3.4103145599365234,
+                  3.4103145599365234,
+                  6.931209564208984,
+                  -0.15858344733715057,
+                  -0.15858344733715057,
+                  -0.239721417427063,
+                  -0.239721417427063,
+                  -0.239721417427063,
+                  -0.239721417427063,
+                  0.3530469338970569
+                ],
+                [
+                  -0.9670572280883789,
+                  -0.9580212831497192,
+                  -0.9487651586532593,
+                  -0.5500972867012024,
+                  -0.5500972867012024,
+                  -0.09870568662881851,
+                  -0.23827947676181793,
+                  -0.9136232137680054,
+                  -0.08722683787345886,
+                  -2.1214492321014404,
+                  -0.3022274672985077,
+                  -0.7046342492103577,
+                  -0.11487530916929245,
+                  -0.16993863880634308,
+                  -0.29471874237060547,
+                  -0.14953701198101044,
+                  -0.14953701198101044,
+                  -0.14953701198101044,
+                  3.314121723175049,
+                  -0.5657729506492615,
+                  -0.5657729506492615,
+                  -0.575699508190155,
+                  -0.07127673178911209,
+                  -0.07127673178911209,
+                  -0.10493437200784683,
+                  -1.0858367681503296,
+                  -1.0858367681503296,
+                  -0.04819606989622116,
+                  -0.04819606989622116,
+                  -0.0049458215944468975,
+                  -0.0049458215944468975,
+                  -0.016253313049674034,
+                  4.9959516525268555,
+                  4.9959516525268555,
+                  3.327207326889038,
+                  3.327207326889038,
+                  3.327207326889038,
+                  3.327207326889038,
+                  0.9743935185121491
+                ]
+              ]
+            }
+          }
+        }
+      },
+      "bn": {
+        "settings": {
+          "locale": "bn",
+          "trainByDomain": false,
+          "tag": "domain-manager-bn",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "হযালো": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "হা": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "আছো,কেমন": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "শুভ,সকাল": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "অযাডপ্ট,করবো,কি,বিডাল": {
+            "intent": "adoption.info",
+            "domain": "default"
+          },
+          "অযাডপ্ট,ক,করা,নিযম": {
+            "intent": "adoption.info",
+            "domain": "default"
+          },
+          "আম,এক,চা,বিডাল": {
+            "intent": "adoption.info",
+            "domain": "default"
+          },
+          "অযাডপশন,বলুন,সম্পর্": {
+            "intent": "adoption.info",
+            "domain": "default"
+          },
+          "ক,খাওয়াবো,বিডাল": {
+            "intent": "care.food",
+            "domain": "default"
+          },
+          "ক,খাবা,বিডাল,সে": {
+            "intent": "care.food",
+            "domain": "default"
+          },
+          "ক,খায়,বিডাল": {
+            "intent": "care.food",
+            "domain": "default"
+          },
+          "টিপস,বিডাল,সবাস্থ্য": {
+            "intent": "care.health",
+            "domain": "default"
+          },
+          "কি,বিডাল,রাখবো,সুসথ": {
+            "intent": "care.health",
+            "domain": "default"
+          },
+          "বিডাল,ভযাকসিন": {
+            "intent": "care.health",
+            "domain": "default"
+          },
+          "এ,ওযেবসাইট,ক,নিয়ে": {
+            "intent": "about.site",
+            "domain": "default"
+          },
+          "এ,কে,বানিযেছে,সাইট": {
+            "intent": "about.site",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "greeting": "default",
+          "adoption.info": "default",
+          "care.food": "default",
+          "care.health": "default",
+          "about.site": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "হ্যালো",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "হাই",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "কেমন আছো",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "শুভ সকাল",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "কিভাবে বিড়াল অ্যাডপ্ট করবো",
+            "intent": "adoption.info"
+          },
+          {
+            "domain": "default",
+            "utterance": "অ্যাডপ্ট করার নিয়ম কি",
+            "intent": "adoption.info"
+          },
+          {
+            "domain": "default",
+            "utterance": "আমি একটা বিড়াল চাই",
+            "intent": "adoption.info"
+          },
+          {
+            "domain": "default",
+            "utterance": "অ্যাডপশন সম্পর্কে বলুন",
+            "intent": "adoption.info"
+          },
+          {
+            "domain": "default",
+            "utterance": "বিড়ালকে কি খাওয়াবো",
+            "intent": "care.food"
+          },
+          {
+            "domain": "default",
+            "utterance": "বিড়ালের সেরা খাবার কি",
+            "intent": "care.food"
+          },
+          {
+            "domain": "default",
+            "utterance": "বিড়াল কি খায়",
+            "intent": "care.food"
+          },
+          {
+            "domain": "default",
+            "utterance": "বিড়ালের স্বাস্থ্যের টিপস",
+            "intent": "care.health"
+          },
+          {
+            "domain": "default",
+            "utterance": "বিড়ালকে কিভাবে সুস্থ রাখবো",
+            "intent": "care.health"
+          },
+          {
+            "domain": "default",
+            "utterance": "বিড়ালের ভ্যাকসিন",
+            "intent": "care.health"
+          },
+          {
+            "domain": "default",
+            "utterance": "এই ওয়েবসাইট কি নিয়ে",
+            "intent": "about.site"
+          },
+          {
+            "domain": "default",
+            "utterance": "এই সাইটটি কে বানিয়েছে",
+            "intent": "about.site"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "bn",
+              "tag": "nlu-bn",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "হযালো": 1,
+              "হা": 1,
+              "কেমন": 1,
+              "আছো": 1,
+              "শুভ": 1,
+              "সকাল": 1,
+              "কি": 1,
+              "বিডাল": 1,
+              "অযাডপ্ট": 1,
+              "করবো": 1,
+              "করা": 1,
+              "নিযম": 1,
+              "ক": 1,
+              "আম": 1,
+              "এক": 1,
+              "চা": 1,
+              "অযাডপশন": 1,
+              "সম্পর্": 1,
+              "বলুন": 1,
+              "খাওয়াবো": 1,
+              "সে": 1,
+              "খাবা": 1,
+              "খায়": 1,
+              "সবাস্থ্য": 1,
+              "টিপস": 1,
+              "সুসথ": 1,
+              "রাখবো": 1,
+              "ভযাকসিন": 1,
+              "এ": 1,
+              "ওযেবসাইট": 1,
+              "নিয়ে": 1,
+              "সাইট": 1,
+              "কে": 1,
+              "বানিযেছে": 1
+            },
+            "intents": {
+              "greeting": 1,
+              "adoption.info": 1,
+              "care.food": 1,
+              "care.health": 1,
+              "about.site": 1
+            },
+            "intentFeatures": {
+              "greeting": {
+                "হযালো": 1,
+                "হা": 1,
+                "কেমন": 1,
+                "আছো": 1,
+                "শুভ": 1,
+                "সকাল": 1
+              },
+              "adoption.info": {
+                "কি": 1,
+                "বিডাল": 1,
+                "অযাডপ্ট": 1,
+                "করবো": 1,
+                "করা": 1,
+                "নিযম": 1,
+                "ক": 1,
+                "আম": 1,
+                "এক": 1,
+                "চা": 1,
+                "অযাডপশন": 1,
+                "সম্পর্": 1,
+                "বলুন": 1
+              },
+              "care.food": {
+                "বিডাল": 1,
+                "ক": 1,
+                "খাওয়াবো": 1,
+                "সে": 1,
+                "খাবা": 1,
+                "খায়": 1
+              },
+              "care.health": {
+                "বিডাল": 1,
+                "সবাস্থ্য": 1,
+                "টিপস": 1,
+                "কি": 1,
+                "সুসথ": 1,
+                "রাখবো": 1,
+                "ভযাকসিন": 1
+              },
+              "about.site": {
+                "এ": 1,
+                "ওযেবসাইট": 1,
+                "ক": 1,
+                "নিয়ে": 1,
+                "সাইট": 1,
+                "কে": 1,
+                "বানিযেছে": 1
+              }
+            },
+            "featuresToIntent": {
+              "হযালো": [
+                "greeting"
+              ],
+              "হা": [
+                "greeting"
+              ],
+              "কেমন": [
+                "greeting"
+              ],
+              "আছো": [
+                "greeting"
+              ],
+              "শুভ": [
+                "greeting"
+              ],
+              "সকাল": [
+                "greeting"
+              ],
+              "কি": [
+                "adoption.info",
+                "care.health"
+              ],
+              "বিডাল": [
+                "adoption.info",
+                "care.food",
+                "care.health"
+              ],
+              "অযাডপ্ট": [
+                "adoption.info"
+              ],
+              "করবো": [
+                "adoption.info"
+              ],
+              "করা": [
+                "adoption.info"
+              ],
+              "নিযম": [
+                "adoption.info"
+              ],
+              "ক": [
+                "adoption.info",
+                "care.food",
+                "about.site"
+              ],
+              "আম": [
+                "adoption.info"
+              ],
+              "এক": [
+                "adoption.info"
+              ],
+              "চা": [
+                "adoption.info"
+              ],
+              "অযাডপশন": [
+                "adoption.info"
+              ],
+              "সম্পর্": [
+                "adoption.info"
+              ],
+              "বলুন": [
+                "adoption.info"
+              ],
+              "খাওয়াবো": [
+                "care.food"
+              ],
+              "সে": [
+                "care.food"
+              ],
+              "খাবা": [
+                "care.food"
+              ],
+              "খায়": [
+                "care.food"
+              ],
+              "সবাস্থ্য": [
+                "care.health"
+              ],
+              "টিপস": [
+                "care.health"
+              ],
+              "সুসথ": [
+                "care.health"
+              ],
+              "রাখবো": [
+                "care.health"
+              ],
+              "ভযাকসিন": [
+                "care.health"
+              ],
+              "এ": [
+                "about.site"
+              ],
+              "ওযেবসাইট": [
+                "about.site"
+              ],
+              "নিয়ে": [
+                "about.site"
+              ],
+              "সাইট": [
+                "about.site"
+              ],
+              "কে": [
+                "about.site"
+              ],
+              "বানিযেছে": [
+                "about.site"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "bn",
+                "tag": "nlu-bn",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "হযালো",
+                "হা",
+                "কেমন",
+                "আছো",
+                "শুভ",
+                "সকাল",
+                "কি",
+                "বিডাল",
+                "অযাডপ্ট",
+                "করবো",
+                "করা",
+                "নিযম",
+                "ক",
+                "আম",
+                "এক",
+                "চা",
+                "অযাডপশন",
+                "সম্পর্",
+                "বলুন",
+                "খাওয়াবো",
+                "সে",
+                "খাবা",
+                "খায়",
+                "সবাস্থ্য",
+                "টিপস",
+                "সুসথ",
+                "রাখবো",
+                "ভযাকসিন",
+                "এ",
+                "ওযেবসাইট",
+                "নিয়ে",
+                "সাইট",
+                "কে",
+                "বানিযেছে"
+              ],
+              "intents": [
+                "greeting",
+                "adoption.info",
+                "care.food",
+                "care.health",
+                "about.site"
+              ],
+              "perceptrons": [
+                [
+                  7.511242866516113,
+                  7.561240196228027,
+                  3.967716932296753,
+                  3.967716932296753,
+                  3.9701974391937256,
+                  3.9701974391937256,
+                  -0.9451804757118225,
+                  -4.754603385925293,
+                  -1.6177810430526733,
+                  -0.45761001110076904,
+                  -1.1087455749511719,
+                  -1.1087455749511719,
+                  -2.578217029571533,
+                  -0.6672334671020508,
+                  -0.6672334671020508,
+                  -0.6672334671020508,
+                  -2.1308505535125732,
+                  -2.1308505535125732,
+                  -2.1308505535125732,
+                  -0.242437481880188,
+                  -0.17212627828121185,
+                  -0.17212627828121185,
+                  -0.15959341824054718,
+                  -0.890922486782074,
+                  -0.890922486782074,
+                  -0.43606364727020264,
+                  -0.43606364727020264,
+                  -1.5570311546325684,
+                  -2.2097082138061523,
+                  -0.8110954761505127,
+                  -0.8110954761505127,
+                  -1.3962141275405884,
+                  -1.3962141275405884,
+                  -1.3962141275405884,
+                  6.417023586854882
+                ],
+                [
+                  -1.3308062553405762,
+                  -1.3171656131744385,
+                  -0.7573241591453552,
+                  -0.7573241591453552,
+                  -0.7463608980178833,
+                  -0.7463608980178833,
+                  2.005513906478882,
+                  0.10137856006622314,
+                  7.062795162200928,
+                  3.744293212890625,
+                  3.3170714378356934,
+                  3.3170714378356934,
+                  -0.7778427004814148,
+                  4.270438194274902,
+                  4.270438194274902,
+                  4.270438194274902,
+                  4.303162097930908,
+                  4.303162097930908,
+                  4.303162097930908,
+                  -1.3044389486312866,
+                  -0.9605826735496521,
+                  -0.9605826735496521,
+                  -1.2170441150665283,
+                  -0.9992823600769043,
+                  -0.9992823600769043,
+                  -1.7384110689163208,
+                  -1.7384110689163208,
+                  -1.451019525527954,
+                  -0.7787936925888062,
+                  -0.3444529175758362,
+                  -0.3444529175758362,
+                  -0.3671424686908722,
+                  -0.3671424686908722,
+                  -0.3671424686908722,
+                  1.364630735269679
+                ],
+                [
+                  -0.129574254155159,
+                  -0.12460564821958542,
+                  -0.0960596427321434,
+                  -0.0960596427321434,
+                  -0.09239708632230759,
+                  -0.09239708632230759,
+                  -1.5491029024124146,
+                  3.5893568992614746,
+                  -2.4657416343688965,
+                  -0.4712490141391754,
+                  -1.9027920961380005,
+                  -1.9027920961380005,
+                  6.8318047523498535,
+                  -1.0679175853729248,
+                  -1.0679175853729248,
+                  -1.0679175853729248,
+                  -0.028755491599440575,
+                  -0.028755491599440575,
+                  -0.028755491599440575,
+                  4.290602684020996,
+                  2.2231786251068115,
+                  2.2231786251068115,
+                  4.279881000518799,
+                  -1.6246321201324463,
+                  -1.6246321201324463,
+                  -0.9764956831932068,
+                  -0.9764956831932068,
+                  -2.9124906063079834,
+                  -2.143900156021118,
+                  -2.0682320594787598,
+                  -2.0682320594787598,
+                  -0.05078108236193657,
+                  -0.05078108236193657,
+                  -0.05078108236193657,
+                  -0.528385678981882
+                ],
+                [
+                  -0.8865301609039307,
+                  -0.8776581287384033,
+                  -0.4835438132286072,
+                  -0.4835438132286072,
+                  -0.48029354214668274,
+                  -0.48029354214668274,
+                  0.4156009256839752,
+                  5.450290203094482,
+                  -3.408823251724243,
+                  -3.357407331466675,
+                  -0.02570810168981552,
+                  -0.02570810168981552,
+                  -4.629121780395508,
+                  -2.1133925914764404,
+                  -2.1133925914764404,
+                  -2.1133925914764404,
+                  -0.30756232142448425,
+                  -0.30756232142448425,
+                  -0.30756232142448425,
+                  -1.754794716835022,
+                  -0.9731903076171875,
+                  -0.9731903076171875,
+                  -1.6498682498931885,
+                  4.011824131011963,
+                  4.011824131011963,
+                  3.7768967151641846,
+                  3.7768967151641846,
+                  7.53377103805542,
+                  -0.46583425998687744,
+                  -0.11452735960483551,
+                  -0.11452735960483551,
+                  -0.2882687747478485,
+                  -0.2882687747478485,
+                  -0.2882687747478485,
+                  0.9292254271882813
+                ],
+                [
+                  -0.627846360206604,
+                  -0.6227709650993347,
+                  -0.39014172554016113,
+                  -0.39014172554016113,
+                  -0.3808274567127228,
+                  -0.3808274567127228,
+                  -0.13072365522384644,
+                  -1.5746963024139404,
+                  -0.7585756778717041,
+                  -0.09766651690006256,
+                  -0.6308865547180176,
+                  -0.6308865547180176,
+                  1.3495631217956543,
+                  -0.09166130423545837,
+                  -0.09166130423545837,
+                  -0.09166130423545837,
+                  -0.26950302720069885,
+                  -0.26950302720069885,
+                  -0.26950302720069885,
+                  -0.465836763381958,
+                  -0.3173550069332123,
+                  -0.3173550069332123,
+                  -0.41042718291282654,
+                  -0.025453820824623108,
+                  -0.025453820824623108,
+                  -0.015644952654838562,
+                  -0.015644952654838562,
+                  -0.017749521881341934,
+                  5.838119983673096,
+                  3.233147621154785,
+                  3.233147621154785,
+                  2.604851007461548,
+                  2.604851007461548,
+                  2.604851007461548,
+                  0.631927470632352
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "bn",
+        "হ্যালো"
+      ],
+      [
+        "bn",
+        "হাই"
+      ],
+      [
+        "bn",
+        "কেমন আছো"
+      ],
+      [
+        "bn",
+        "শুভ সকাল"
+      ],
+      [
+        "en",
+        "how to adopt a cat"
+      ],
+      [
+        "en",
+        "adoption process"
+      ],
+      [
+        "en",
+        "i want to adopt"
+      ],
+      [
+        "en",
+        "requirements for adoption"
+      ],
+      [
+        "en",
+        "tell me about adoption"
+      ],
+      [
+        "bn",
+        "কিভাবে বিড়াল অ্যাডপ্ট করবো"
+      ],
+      [
+        "bn",
+        "অ্যাডপ্ট করার নিয়ম কি"
+      ],
+      [
+        "bn",
+        "আমি একটা বিড়াল চাই"
+      ],
+      [
+        "bn",
+        "অ্যাডপশন সম্পর্কে বলুন"
+      ],
+      [
+        "en",
+        "what should i feed my cat"
+      ],
+      [
+        "en",
+        "best food for cats"
+      ],
+      [
+        "en",
+        "cat nutrition"
+      ],
+      [
+        "en",
+        "what do cats eat"
+      ],
+      [
+        "bn",
+        "বিড়ালকে কি খাওয়াবো"
+      ],
+      [
+        "bn",
+        "বিড়ালের সেরা খাবার কি"
+      ],
+      [
+        "bn",
+        "বিড়াল কি খায়"
+      ],
+      [
+        "en",
+        "cat health tips"
+      ],
+      [
+        "en",
+        "how to keep my cat healthy"
+      ],
+      [
+        "en",
+        "vaccination for cats"
+      ],
+      [
+        "bn",
+        "বিড়ালের স্বাস্থ্যের টিপস"
+      ],
+      [
+        "bn",
+        "বিড়ালকে কিভাবে সুস্থ রাখবো"
+      ],
+      [
+        "bn",
+        "বিড়ালের ভ্যাকসিন"
+      ],
+      [
+        "en",
+        "what is purrfecthub"
+      ],
+      [
+        "en",
+        "who made this site"
+      ],
+      [
+        "bn",
+        "এই ওয়েবসাইট কি নিয়ে"
+      ],
+      [
+        "bn",
+        "এই সাইটটি কে বানিয়েছে"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "en": {
+        "greeting": [
+          {
+            "answer": "Hey there! I am your PurrfectHub assistant. How can I help you and your feline friends today?"
+          }
+        ],
+        "adoption.info": [
+          {
+            "answer": "To adopt a cat, visit our 'Cats' page, find a furry friend you love, and click the 'Apply for Adoption' button. You will need to fill out a short form."
+          }
+        ],
+        "care.food": [
+          {
+            "answer": "High-quality dry or wet food specifically formulated for cats is best. Avoid chocolate, onions, and garlic!"
+          }
+        ],
+        "care.health": [
+          {
+            "answer": "Regular vet checkups and timely vaccinations are key to a healthy cat. Check our blog for detailed health tips!"
+          }
+        ],
+        "about.site": [
+          {
+            "answer": "PurrfectHub is a platform connecting cat lovers with shelters to promote adoption and cat welfare."
+          }
+        ]
+      },
+      "bn": {
+        "greeting": [
+          {
+            "answer": "হ্যালো! আমি আপনার PurrfectHub সহকারী। আপনার বিড়াল বন্ধু সম্পর্কে আপনাকে আজ কিভাবে সাহায্য করতে পারি?"
+          }
+        ],
+        "adoption.info": [
+          {
+            "answer": "বিড়াল অ্যাডপ্ট করার জন্য আমাদের 'Cats' পেজে যান, পছন্দের বিড়ালটি খুঁজুন এবং 'Apply for Adoption' বাটনে ক্লিক করুন।"
+          }
+        ],
+        "care.food": [
+          {
+            "answer": "বিড়ালের জন্য বিশেষভাবে তৈরি উচ্চমানের খাবার সবচেয়ে ভালো। চকলেট, পেঁয়াজ বা রসুন তাদের খাওয়াবেন না!"
+          }
+        ],
+        "care.health": [
+          {
+            "answer": "নিয়মিত ভেট চেকআপ এবং সময়মতো ভ্যাকসিন বিড়ালের স্বাস্থ্যের জন্য জরুরি। আরও জানতে আমাদের ব্লগ দেখুন!"
+          }
+        ],
+        "about.site": [
+          {
+            "answer": "PurrfectHub বিড়াল প্রেমীদের এবং শেল্টারগুলোকে সংযুক্ত করার একটি প্ল্যাটফর্ম।"
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}

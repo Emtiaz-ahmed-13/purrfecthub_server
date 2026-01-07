@@ -1,0 +1,54 @@
+{
+  "documents": [
+    { "lang": "en", "text": "hello", "intent": "greeting" },
+    { "lang": "en", "text": "hi", "intent": "greeting" },
+    { "lang": "en", "text": "hey", "intent": "greeting" },
+    { "lang": "en", "text": "good morning", "intent": "greeting" },
+    { "lang": "bn", "text": "হ্যালো", "intent": "greeting" },
+    { "lang": "bn", "text": "হাই", "intent": "greeting" },
+    { "lang": "bn", "text": "কেমন আছো", "intent": "greeting" },
+    { "lang": "bn", "text": "শুভ সকাল", "intent": "greeting" },
+
+    { "lang": "en", "text": "how to adopt a cat", "intent": "adoption.info" },
+    { "lang": "en", "text": "adoption process", "intent": "adoption.info" },
+    { "lang": "en", "text": "i want to adopt", "intent": "adoption.info" },
+    { "lang": "en", "text": "requirements for adoption", "intent": "adoption.info" },
+    { "lang": "en", "text": "tell me about adoption", "intent": "adoption.info" },
+    { "lang": "bn", "text": "কিভাবে বিড়াল অ্যাডপ্ট করবো", "intent": "adoption.info" },
+    { "lang": "bn", "text": "অ্যাডপ্ট করার নিয়ম কি", "intent": "adoption.info" },
+    { "lang": "bn", "text": "আমি একটা বিড়াল চাই", "intent": "adoption.info" },
+    { "lang": "bn", "text": "অ্যাডপশন সম্পর্কে বলুন", "intent": "adoption.info" },
+
+    { "lang": "en", "text": "what should i feed my cat", "intent": "care.food" },
+    { "lang": "en", "text": "best food for cats", "intent": "care.food" },
+    { "lang": "en", "text": "cat nutrition", "intent": "care.food" },
+    { "lang": "en", "text": "what do cats eat", "intent": "care.food" },
+    { "lang": "bn", "text": "বিড়ালকে কি খাওয়াবো", "intent": "care.food" },
+    { "lang": "bn", "text": "বিড়ালের সেরা খাবার কি", "intent": "care.food" },
+    { "lang": "bn", "text": "বিড়াল কি খায়", "intent": "care.food" },
+
+    { "lang": "en", "text": "cat health tips", "intent": "care.health" },
+    { "lang": "en", "text": "how to keep my cat healthy", "intent": "care.health" },
+    { "lang": "en", "text": "vaccination for cats", "intent": "care.health" },
+    { "lang": "bn", "text": "বিড়ালের স্বাস্থ্যের টিপস", "intent": "care.health" },
+    { "lang": "bn", "text": "বিড়ালকে কিভাবে সুস্থ রাখবো", "intent": "care.health" },
+    { "lang": "bn", "text": "বিড়ালের ভ্যাকসিন", "intent": "care.health" },
+
+    { "lang": "en", "text": "what is purrfecthub", "intent": "about.site" },
+    { "lang": "en", "text": "who made this site", "intent": "about.site" },
+    { "lang": "bn", "text": "এই ওয়েবসাইট কি নিয়ে", "intent": "about.site" },
+    { "lang": "bn", "text": "এই সাইটটি কে বানিয়েছে", "intent": "about.site" }
+  ],
+  "answers": [
+    { "lang": "en", "intent": "greeting", "answer": "Hey there! I am your PurrfectHub assistant. How can I help you and your feline friends today?" },
+    { "lang": "bn", "intent": "greeting", "answer": "হ্যালো! আমি আপনার PurrfectHub সহকারী। আপনার বিড়াল বন্ধু সম্পর্কে আপনাকে আজ কিভাবে সাহায্য করতে পারি?" },
+    { "lang": "en", "intent": "adoption.info", "answer": "To adopt a cat, visit our 'Cats' page, find a furry friend you love, and click the 'Apply for Adoption' button. You will need to fill out a short form." },
+    { "lang": "bn", "intent": "adoption.info", "answer": "বিড়াল অ্যাডপ্ট করার জন্য আমাদের 'Cats' পেজে যান, পছন্দের বিড়ালটি খুঁজুন এবং 'Apply for Adoption' বাটনে ক্লিক করুন।" },
+    { "lang": "en", "intent": "care.food", "answer": "High-quality dry or wet food specifically formulated for cats is best. Avoid chocolate, onions, and garlic!" },
+    { "lang": "bn", "intent": "care.food", "answer": "বিড়ালের জন্য বিশেষভাবে তৈরি উচ্চমানের খাবার সবচেয়ে ভালো। চকলেট, পেঁয়াজ বা রসুন তাদের খাওয়াবেন না!" },
+    { "lang": "en", "intent": "care.health", "answer": "Regular vet checkups and timely vaccinations are key to a healthy cat. Check our blog for detailed health tips!" },
+    { "lang": "bn", "intent": "care.health", "answer": "নিয়মিত ভেট চেকআপ এবং সময়মতো ভ্যাকসিন বিড়ালের স্বাস্থ্যের জন্য জরুরি। আরও জানতে আমাদের ব্লগ দেখুন!" },
+    { "lang": "en", "intent": "about.site", "answer": "PurrfectHub is a platform connecting cat lovers with shelters to promote adoption and cat welfare." },
+    { "lang": "bn", "intent": "about.site", "answer": "PurrfectHub বিড়াল প্রেমীদের এবং শেল্টারগুলোকে সংযুক্ত করার একটি প্ল্যাটফর্ম।" }
+  ]
+}

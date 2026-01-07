@@ -1,5 +1,6 @@
 import { Server } from "http";
 import app from "./app";
+import { AIServices } from "./app/modules/AIChat/ai.service";
 import config from "./config";
 import { initializeSocket } from "./socket";
 
@@ -11,6 +12,9 @@ async function main() {
   // Initialize Socket.io
   const io = initializeSocket(server);
   console.log("Socket.io initialized");
+
+  // Train AI Model
+  await AIServices.trainAI();
 
   // Handle graceful shutdown
   process.on("SIGINT", () => {
